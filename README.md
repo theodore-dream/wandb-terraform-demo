@@ -142,6 +142,7 @@ small_eval_dataset = dataset["test"].shuffle(seed=42).select(range(50))
 
 Modifying the batch size
 
+```
 training_args = TrainingArguments(
     output_dir="models",
     report_to="wandb",
@@ -153,6 +154,7 @@ training_args = TrainingArguments(
     max_steps=50,
     save_steps=50,
 )
+```
 
 Reviewing an overview of evaluation performance for the set of 10 runs that I completed, it is clear that overall, runs that included a larger number of steps led to higheer evaluation accuracy.  
 

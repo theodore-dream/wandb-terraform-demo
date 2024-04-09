@@ -1,4 +1,4 @@
-# wandb Terraform GCP Demo
+# wandb gcp demo using terraform
 Demo of terraform deployment of wandb platform on GCP
 
 ## Overview

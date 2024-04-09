@@ -156,11 +156,15 @@ training_args = TrainingArguments(
 )
 ```
 
-Reviewing an overview of evaluation performance for the set of 10 runs that I completed, it is clear that overall, runs that included a larger number of steps led to higheer evaluation accuracy.  
+Reviewing an overview of evaluation performance for the set of 10 runs that I completed, it is clear that overall, runs that included a larger number of steps led to higher evaluation accuracy.  
+
+<img width="1338" alt="Screenshot 2024-04-08 at 9 04 56 PM" src="https://github.com/theodore-dream/wandb-terraform-demo/assets/20304946/ebee70e5-dce8-4aa0-ad23-0bf784739d5d">
 
 The effect of batch sizes and minor tweaks on dataset examples and evaluation examples sizes is not immediately clear to me, however I can identify that some runs had significiantly improved performance over others in processing samples per second. 
 
 Reviewing a comparison of train/loss I can observe that efficient_valley run had the least loss. Loss represents the poorness of a model's prediction strength, so we want to have low levels of loss.
+
+<img width="1338" alt="Screenshot 2024-04-08 at 8 58 31 PM" src="https://github.com/theodore-dream/wandb-terraform-demo/assets/20304946/97e9c503-e556-44fe-b34c-a153bb03f9c7">
 
 ### wandb platform demo wrapup
 

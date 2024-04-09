@@ -126,7 +126,7 @@ Here we can see overview information about my runs.
 
 <img width="1109" alt="Screenshot 2024-04-08 at 8 28 32 PM" src="https://github.com/theodore-dream/wandb-terraform-demo/assets/20304946/017ed400-a5b2-44fc-9ddc-37f9fcbfc050">
 
-#### wandb platform demo experimentation
+### wandb platform demo experimentation
 
 Using the huggingface.py script, I am loading the "yelp_review_full" dataset and tokenizing this dataset with distilbert-base-uncased utility. I then significantly reduced the size of the dataset examples that are used, as well as reducing the size of the evaluation dataset.
 
@@ -162,6 +162,6 @@ The effect of batch sizes and minor tweaks on dataset examples and evaluation ex
 
 Reviewing a comparison of train/loss I can observe that efficient_valley run had the least loss. Loss represents the poorness of a model's prediction strength, so we want to have low levels of loss.
 
-#### wandb platform demo wrapup
+### wandb platform demo wrapup
 
 It is clear that the wandb platform has comprehensive capabilities around model development and MLOPS workflows. For this demo, I focused on model creation, however in another future demo I hope to focus on model/LLM execution tracking and comparison features.

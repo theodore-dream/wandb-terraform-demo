@@ -15,6 +15,18 @@ There are 2 main sections of this README:
  - One, you will have deployed a kubernetes cluster that is running on google kubernetes engine, and that cluster will be scaled up to 2 replicas running wandb. You will expose a service that will allow you to connect to your W&B instance over the internet.
  - Two, you will be prepared to incorporate wandb libraries into your ML application and track your runs using the W&B UI.
 
+### Screenshots of example GCP deployment
+
+Overview information
+<img width="1126" alt="Screenshot 2024-04-08 at 8 30 03 PM" src="https://github.com/theodore-dream/wandb-terraform-demo/assets/20304946/3926e273-4620-4bd6-bd9d-b0964022a238">
+
+Showing my kubernetes deployment has 2 replicas running
+<img width="1134" alt="Screenshot 2024-04-08 at 8 32 14 PM" src="https://github.com/theodore-dream/wandb-terraform-demo/assets/20304946/9b3660bd-5311-46d1-aabe-6c0b5f6ed442">
+
+Showing that my kubernetes service is running load balancer and exposing an accessible IP 
+<img width="368" alt="Screenshot 2024-04-08 at 8 38 35 PM" src="https://github.com/theodore-dream/wandb-terraform-demo/assets/20304946/43abd570-ef57-4cad-afea-6d765e471ee0">
+
+
 ### Infrastructure Deployment
 
 With this GCP terraform example, I want to provide complete step by step instructions to provide the steps I took to deploy this to an empty GCP project.
@@ -96,13 +108,19 @@ You can now access your wandb deployment by using the publicly exposed IP addres
 
 Once you have logged in to your instance you can use the wandb CLI to help verify your installation using: `wandb verify` and `wandb status` 
 
-### Screenshots of example GCP deployment
-
-
 ### Example usage of the Weights and Biases
 
-I used an eaxmple project "my awesome project" to run different tests runs, or experiments, in the wandb platform 
-
-More info here
+I used an eaxmple project "my awesome project" to run different tests runs, or experiments, in the wandb platform.
 
 ### Screenshots of wandb platform 
+
+Here we can see some basic information about my organization
+
+<img width="1061" alt="Screenshot 2024-04-08 at 8 27 34 PM" src="https://github.com/theodore-dream/wandb-terraform-demo/assets/20304946/f3300c5e-f23c-4f8a-a0b4-bd1bfe5b222c">
+
+Here we can see overview information about my runs 
+
+<img width="1109" alt="Screenshot 2024-04-08 at 8 28 32 PM" src="https://github.com/theodore-dream/wandb-terraform-demo/assets/20304946/017ed400-a5b2-44fc-9ddc-37f9fcbfc050">
+
+
+

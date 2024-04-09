@@ -15,6 +15,8 @@ There are 2 main sections of this README:
  - One, you will have deployed a kubernetes cluster that is running on google kubernetes engine, and that cluster will be scaled up to 2 replicas running wandb. You will expose a service that will allow you to connect to your W&B instance over the internet.
  - Two, you will be prepared to incorporate wandb libraries into your ML application and track your runs using the W&B UI.
 
+## Infrastructure deployment
+
 ### Screenshots of example GCP deployment
 
 Overview information
@@ -108,19 +110,56 @@ You can now access your wandb deployment by using the publicly exposed IP addres
 
 Once you have logged in to your instance you can use the wandb CLI to help verify your installation using: `wandb verify` and `wandb status` 
 
-### Example usage of the Weights and Biases
+## Example usage of the Weights and Biases
 
-I used an eaxmple project "my awesome project" to run different tests runs, or experiments, in the wandb platform.
+Weights & Biases is a machine learning platform for developers to build better models faster. In this example repo I am performing basic tests of model development on my M1 Macbook. 
+
+I used an example project "my awesome project" to run different tests runs, or experiments, in the wandb platform. wandb provides me with additional observability and information about my runs so I can make more effective models. 
 
 ### Screenshots of wandb platform 
 
-Here we can see some basic information about my organization
+Here we can see some basic information about my organization to verify my setup.
 
 <img width="1061" alt="Screenshot 2024-04-08 at 8 27 34 PM" src="https://github.com/theodore-dream/wandb-terraform-demo/assets/20304946/f3300c5e-f23c-4f8a-a0b4-bd1bfe5b222c">
 
-Here we can see overview information about my runs 
+Here we can see overview information about my runs.
 
 <img width="1109" alt="Screenshot 2024-04-08 at 8 28 32 PM" src="https://github.com/theodore-dream/wandb-terraform-demo/assets/20304946/017ed400-a5b2-44fc-9ddc-37f9fcbfc050">
 
+#### wandb platform demo experimentation
 
+Using the huggingface.py script, I am loading the "yelp_review_full" dataset and tokenizing this dataset with distilbert-base-uncased utility. I then significantly reduced the size of the dataset examples that are used, as well as reducing the size of the evaluation dataset.
 
+From this base configuration, I then ran a set of 10 runs to test out the differences in different dataset examples, and dataset evaluation samples. I also iteratively modified batch sizes, and eval steps and max steps. Relevant code snippets shown here:  
+
+```
+# reduced the range of training examples to 300 to make it run faster
+small_train_dataset = dataset["train"].shuffle(seed=42).select(range(300))
+
+# reduced the range of evaluation samples to 50 to make it run faster
+small_eval_dataset = dataset["test"].shuffle(seed=42).select(range(50))
+```
+
+Modifying the batch size
+
+training_args = TrainingArguments(
+    output_dir="models",
+    report_to="wandb",
+    logging_steps=5,
+    per_device_train_batch_size=16,  # Reduced from 32 to 16
+    per_device_eval_batch_size=16,  # Reduced from 32 to 16
+    evaluation_strategy="steps",
+    eval_steps=10,
+    max_steps=50,
+    save_steps=50,
+)
+
+Reviewing an overview of evaluation performance for the set of 10 runs that I completed, it is clear that overall, runs that included a larger number of steps led to higheer evaluation accuracy.  
+
+The effect of batch sizes and minor tweaks on dataset examples and evaluation examples sizes is not immediately clear to me, however I can identify that some runs had significiantly improved performance over others in processing samples per second. 
+
+Reviewing a comparison of train/loss I can observe that efficient_valley run had the least loss. Loss represents the poorness of a model's prediction strength, so we want to have low levels of loss.
+
+#### wandb platform demo wrapup
+
+It is clear that the wandb platform has comprehensive capabilities around model development and MLOPS workflows. For this demo, I focused on model creation, however in another future demo I hope to focus on model/LLM execution tracking and comparison features.

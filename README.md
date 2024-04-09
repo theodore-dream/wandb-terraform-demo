@@ -92,6 +92,17 @@ kubectl edit svc wandb
 
  - You should now be able to see an external IP on the `wandb` service if you run `kubectl get services`
 
- You can now access your wandb deployment by using the publicly exposed IP address and port and logging in. You will also be provided a URL when you do your application code runs and log them to wandb using the wandb utility.
+You can now access your wandb deployment by using the publicly exposed IP address and port and logging in. 
 
- ### Example usage of the Weights and Biases
+Once you have logged in to your instance you can use the wandb CLI to help verify your installation using: `wandb verify` and `wandb status` 
+
+### Screenshots of example GCP deployment
+
+
+### Example usage of the Weights and Biases
+
+I used an eaxmple project "my awesome project" to run different tests runs, or experiments, in the wandb platform 
+
+More info here
+
+### Screenshots of wandb platform 

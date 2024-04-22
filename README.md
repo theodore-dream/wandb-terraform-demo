@@ -98,7 +98,7 @@ kubectl get services
  kubectl scale deployment/wandb --replicas=2
 ```
 
- - There is another challenge to solve with the default deployment configuration. The gke_app specifies service type "Nodeport" which doesn't expose acess to the cluster. We want to change this to "Loadbalancer". Run the following commmand and  modify the config at bottom from `type: NodePort` to `type: Loadbalancer` 
+ - There is another challenge to solve with the default deployment configuration. The gke_app specifies service type "Nodeport" which doesn't expose acess to the cluster. We want to change this to "LoadBalancer". Run the following commmand and  modify the config at bottom from `type: NodePort` to `type: LoadBalancer` 
 
 ```
 kubectl edit svc wandb
